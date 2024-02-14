@@ -1,4 +1,4 @@
-package com.surely.surely.controllers.User;
+package com.surely.surely.controllers.user;
 
 import java.util.Optional;
 

@@ -6,12 +6,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.surely.surely.dto.AbstractDTO;
 import com.surely.surely.dto.product.ProductDTO;
-import com.surely.surely.models.cart.Cart;
 import com.surely.surely.models.cart.CartItem;
-import com.surely.surely.models.product.Product;
-
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 /**
  * CartItem DTO
@@ -79,7 +74,7 @@ public class CartItemDTO extends AbstractDTO {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<CartItem> mapTo() {
 		return CartItem.class;
 	}
 

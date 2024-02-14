@@ -6,9 +6,8 @@ package com.surely.surely.models.promotion;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.SQLRestriction;
 
-import com.surely.surely.dto.cart.CartDTO;
 import com.surely.surely.dto.promotion.VIPDTO;
 
 import jakarta.persistence.Column;
@@ -21,7 +20,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("VIP")
-@Where(clause = "deleted = false")
+@SQLRestriction("deleted = false")
 public class VIP extends Promotion {
 
 	/**
@@ -80,7 +79,7 @@ public class VIP extends Promotion {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<VIPDTO> mapTo() {
 		return VIPDTO.class;
 	}
 

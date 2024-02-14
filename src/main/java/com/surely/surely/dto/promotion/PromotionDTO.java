@@ -11,7 +11,7 @@ import com.surely.surely.models.promotion.Promotion;
  * @author Matias
  *
  */
-public class PromotionDTO extends AbstractDTO {
+public abstract class PromotionDTO extends AbstractDTO {
 
 	/**
 	 * type_promotion
@@ -33,9 +33,7 @@ public class PromotionDTO extends AbstractDTO {
 	private int numberOfProducts;
 
 	@Override
-	public Class<?> mapTo() {
-		return Promotion.class;
-	}
+	public abstract Class<? extends Promotion> mapTo();
 
 	public PromotionDTO() {
 		super();

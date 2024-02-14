@@ -75,7 +75,7 @@ public class VIPDTO extends PromotionDTO {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<VIP> mapTo() {
 		return VIP.class;
 	}
 

@@ -1,6 +1,5 @@
 package com.surely.surely.services.promotion;
 
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -20,5 +19,4 @@ public interface I_PromotionService extends I_AbstractService<Promotion, Long, P
 	
 	public void applyDiscount(CartDTO cart);
 	
-	public List<PromotionDTO> findAllByTypePromotion(String promotionType);
 }

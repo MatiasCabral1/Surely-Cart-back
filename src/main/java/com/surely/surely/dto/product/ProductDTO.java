@@ -46,7 +46,7 @@ public class ProductDTO extends AbstractDTO {
 	private BigDecimal price;
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<Product> mapTo() {
 		return Product.class;
 	}
 

@@ -52,7 +52,7 @@ public class CartDTO extends AbstractDTO {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<Cart> mapTo() {
 		return Cart.class;
 	}
 

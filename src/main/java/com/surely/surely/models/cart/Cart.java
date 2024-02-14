@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.SQLRestriction;
 
 import com.surely.surely.dto.cart.CartDTO;
 import com.surely.surely.models.EntityMapTo;
@@ -29,7 +29,7 @@ import jakarta.persistence.OneToMany;
  *
  */
 @Entity
-@Where(clause = "deleted = false")
+@SQLRestriction("deleted = false")
 public class Cart extends EntityMapTo {
 
 	/**
@@ -77,7 +77,7 @@ public class Cart extends EntityMapTo {
 	/**
 	 * cart items
 	 */
-	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<CartItem> cartItems;
 
 	public Long getId() {
@@ -90,10 +90,6 @@ public class Cart extends EntityMapTo {
 
 	public Boolean getDeleted() {
 		return deleted;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
 	}
 
 	public E_CartStatus getStatus() {
@@ -137,9 +133,13 @@ public class Cart extends EntityMapTo {
 	}
 
 	@Override
-	public Class<?> mapTo() {
-		// TODO Auto-generated method stub
+	public Class<CartDTO> mapTo() {
 		return CartDTO.class;
+	}
+	
+	@Override
+	public void setDeleted(Boolean deleted) {
+		this.deleted = deleted;
 	}
 
 }

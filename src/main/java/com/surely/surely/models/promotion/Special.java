@@ -6,9 +6,7 @@ package com.surely.surely.models.promotion;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.hibernate.annotations.Where;
-
-import com.surely.surely.dto.cart.CartDTO;
+import org.hibernate.annotations.SQLRestriction;
 import com.surely.surely.dto.promotion.SpecialDTO;
 
 import jakarta.persistence.Column;
@@ -20,7 +18,7 @@ import jakarta.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("SPECIAL")
-@Where(clause = "deleted = false")
+@SQLRestriction("deleted = false")
 public class Special extends Promotion {
 
 	/**
@@ -55,7 +53,7 @@ public class Special extends Promotion {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<SpecialDTO> mapTo() {
 		return SpecialDTO.class;
 	}
 

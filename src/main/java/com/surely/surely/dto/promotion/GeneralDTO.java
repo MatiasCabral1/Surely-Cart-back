@@ -61,7 +61,7 @@ public class GeneralDTO extends PromotionDTO {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<General> mapTo() {
 		return General.class;
 	}
 

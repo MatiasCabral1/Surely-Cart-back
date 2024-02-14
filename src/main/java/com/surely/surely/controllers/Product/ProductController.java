@@ -1,4 +1,4 @@
-package com.surely.surely.controllers.Product;
+package com.surely.surely.controllers.product;
 
 import java.util.List;
 import java.util.Optional;

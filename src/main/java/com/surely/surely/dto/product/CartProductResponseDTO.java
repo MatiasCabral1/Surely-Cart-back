@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.surely.surely.dto.cart.CartItemDTO;
-import com.surely.surely.models.cart.CartItem;
 import com.surely.surely.models.cart.E_CartStatus;
 /**
  * Response for remove product from cart

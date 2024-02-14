@@ -5,10 +5,9 @@ package com.surely.surely.models.promotion;
 
 import java.util.Date;
 
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.SQLRestriction;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.surely.surely.dto.cart.CartDTO;
 import com.surely.surely.dto.promotion.GeneralDTO;
 
 import jakarta.persistence.Column;
@@ -20,7 +19,7 @@ import jakarta.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("GENERAL")
-@Where(clause = "deleted = false")
+@SQLRestriction("deleted = false")
 public class General extends Promotion {
 	/**
 	 * Start Date
@@ -69,7 +68,7 @@ public class General extends Promotion {
 	}
 	
 	@Override
-	public Class<?> mapTo() {
+	public Class<GeneralDTO> mapTo() {
 		return GeneralDTO.class;
 	}
 }

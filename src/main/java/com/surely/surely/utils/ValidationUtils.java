@@ -3,8 +3,6 @@ package com.surely.surely.utils;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.commons.lang3.EnumUtils;
-
 public class ValidationUtils {
 
 	public static <T> T optionalIsEmpty(Optional<T> optional, String errorMessage) {

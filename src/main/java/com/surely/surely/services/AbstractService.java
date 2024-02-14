@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.surely.surely.dto.DTOtoEntity;
 import com.surely.surely.models.EntityMapTo;
+import com.surely.surely.utils.CodedException;
+
+import jakarta.transaction.Transactional;
 
 /**
  * Abstract Service
@@ -43,9 +46,23 @@ public abstract class AbstractService<T, ID, DTO> implements I_AbstractService<T
 	}
 
 	@Override
+	@Transactional
 	public void deleteById(ID id) {
-		this.getRepository().deleteById(id);
+	    Optional<T> optionalEntity = this.getRepository().findById(id);
+	    if (optionalEntity.isPresent()) {
+	        T entity = optionalEntity.get();
+	        if (entity instanceof EntityMapTo) {
+	            ((EntityMapTo) entity).setDeleted(true);
+	            this.getRepository().save(entity);
+	        } else {
+	            throw new CodedException("No se pudo eliminar la entidad");
+	        }
+	    } else {
+	        throw new CodedException("No se encuentra la entidad con id: " + id);
+	    }
 	}
+
+
 	
 	/**
 	 * @param entity

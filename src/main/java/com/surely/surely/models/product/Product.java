@@ -6,7 +6,7 @@ package com.surely.surely.models.product;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.SQLRestriction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.surely.surely.dto.product.ProductDTO;
@@ -26,9 +26,8 @@ import jakarta.persistence.Table;
  * 
  * @author Matias
  */
-@SuppressWarnings("deprecation")
 @Entity
-@Where(clause = "deleted = false AND enabled = true")
+@SQLRestriction("deleted = false AND enabled = true")
 @Table(name = "product")
 public class Product extends EntityMapTo {
 
@@ -95,6 +94,7 @@ public class Product extends EntityMapTo {
 		return deleted;
 	}
 
+	@Override
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
 	}
@@ -148,7 +148,7 @@ public class Product extends EntityMapTo {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<ProductDTO> mapTo() {
 		return ProductDTO.class;
 	}
 
