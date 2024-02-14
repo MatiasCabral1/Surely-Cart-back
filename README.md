@@ -13,7 +13,7 @@
 ### 2. Clonar el Repositorio
    Clona el repositorio del backend en tu máquina local.
    ```bash
-   git clone [https://github.com/tu-usuario/Surely-Cart-backend.git](https://github.com/MatiasCabral1/Surely-Cart-back)
+   git clone https://github.com/MatiasCabral1/Surely-Cart-back.git
    ```
 ### 3. Configuración del proyecto
 1. Navega al directorio del proyecto clonado.
