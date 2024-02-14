@@ -150,8 +150,7 @@ public class CartService extends AbstractService<Cart, Long, CartDTO> implements
 		cart.removeCartItem(cartItem);
 		this.save(cart);
 
-		cartItem.setDeleted(true);
-		cartItemService.save(cartItem);
+		cartItemService.deleteById(cartItem.getId());
 		
 		CartProductResponseDTO response = new CartProductResponseDTO();
 		response.setId(cart.getId());
@@ -162,7 +161,6 @@ public class CartService extends AbstractService<Cart, Long, CartDTO> implements
 		return response;
 	}
 
-	@Transactional
 	public void deleteCartById(Long idCart) {
 		logger.debug("executing cartService_deleteCartById() with params -- idCart: {} ", idCart);
 		
@@ -170,10 +168,10 @@ public class CartService extends AbstractService<Cart, Long, CartDTO> implements
 				"No se encontró un carrito con el id: " + idCart);
 		validateCartStatus(cart);
 		cart.getCartItems().forEach(item -> item.setDeleted(true));
-		cart.setDeleted(true);
 		cart.setStatus(E_CartStatus.CANCELLED);
-
 		this.save(cart);
+		cart.getCartItems().forEach(item -> this.cartItemService.deleteById(item.getId()));
+		this.deleteById(idCart);
 	}
 	
 	@Transactional

@@ -3,7 +3,7 @@ package com.surely.surely.models.cart;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.SQLRestriction;
 
 import com.surely.surely.dto.cart.CartItemDTO;
 import com.surely.surely.models.EntityMapTo;
@@ -23,9 +23,8 @@ import jakarta.persistence.ManyToOne;
  * @author Matias
  *
  */
-@SuppressWarnings("deprecation")
 @Entity
-@Where(clause = "deleted = false")
+@SQLRestriction("deleted = false")
 public class CartItem extends EntityMapTo {
 
 	/**
@@ -85,6 +84,7 @@ public class CartItem extends EntityMapTo {
 		return deleted;
 	}
 
+	@Override
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
 	}
@@ -130,8 +130,7 @@ public class CartItem extends EntityMapTo {
 	}
 
 	@Override
-	public Class<?> mapTo() {
-		// TODO Auto-generated method stub
+	public Class<CartItemDTO> mapTo() {
 		return CartItemDTO.class;
 	}
 

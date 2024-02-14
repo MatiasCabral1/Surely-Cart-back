@@ -120,7 +120,7 @@ public class UserDTO extends AbstractDTO {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<User> mapTo() {
 		return User.class;
 	}
 

@@ -13,7 +13,7 @@ import com.surely.surely.services.AbstractService;
 public class CartItemService extends AbstractService<CartItem, Long, CartItemDTO> implements I_CartItemService{
 
 	@Autowired
-	CartItemRepository cartItemRepository;
+	private CartItemRepository cartItemRepository;
 	
 	@Override
 	public JpaRepository<CartItem, Long> getRepository() {

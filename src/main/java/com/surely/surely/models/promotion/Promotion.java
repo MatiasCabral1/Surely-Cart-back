@@ -5,7 +5,7 @@ package com.surely.surely.models.promotion;
 
 import java.util.Date;
 
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.SQLRestriction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.surely.surely.dto.promotion.PromotionDTO;
@@ -26,7 +26,7 @@ import jakarta.persistence.InheritanceType;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Where(clause = "deleted = false")
+@SQLRestriction("deleted = false")
 @DiscriminatorColumn(name = "type_promotion", discriminatorType = DiscriminatorType.STRING)
 public class Promotion extends EntityMapTo{
 
@@ -73,6 +73,7 @@ public class Promotion extends EntityMapTo{
 		return deleted;
 	}
 
+	@Override
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
 	}
@@ -103,7 +104,6 @@ public class Promotion extends EntityMapTo{
 
 	@Override
 	public Class<?> mapTo() {
-		// TODO Auto-generated method stub
 		return PromotionDTO.class;
 	}
 

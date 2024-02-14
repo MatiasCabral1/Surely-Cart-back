@@ -49,7 +49,7 @@ public class SpecialDTO extends PromotionDTO {
 	}
 
 	@Override
-	public Class<?> mapTo() {
+	public Class<Special> mapTo() {
 		return Special.class;
 	}
 

@@ -2,7 +2,7 @@ package com.surely.surely.models.user;
 
 import java.util.Date;
 
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.SQLRestriction;
 
 import com.surely.surely.dto.user.UserDTO;
 import com.surely.surely.models.EntityMapTo;
@@ -23,7 +23,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "users")
-@Where(clause = "deleted = false AND enabled = true")
+@SQLRestriction("deleted = false AND enabled = true")
 public class User extends EntityMapTo {
 
 	/**
@@ -100,6 +100,7 @@ public class User extends EntityMapTo {
 		return deleted;
 	}
 
+	@Override
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
 	}
