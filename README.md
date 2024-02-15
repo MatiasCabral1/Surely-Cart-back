@@ -18,7 +18,7 @@
 ### 3. Configuración del proyecto
 1. Navega al directorio del proyecto clonado.
    ```bash
-   cd Surely-Cart-backend
+   cd Surely-Cart-back
 2. Abre el archivo src/main/resources/application.properties y configura la conexión a la base de datos PostgreSQL. Por ejemplo:
     ```bash
     spring.datasource.url=jdbc:postgresql://localhost:5432/cart
