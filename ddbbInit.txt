@@ -1,0 +1,22 @@
+-- Inserts para la tabla "users"
+INSERT INTO public.users (id, deleted, document_number, document_type, enabled, is_vip, password, role_type, "timestamp", username)
+VALUES 
+    (1, false, '123456789', 'DU', true, true, 'contraseña123', 1, '2024-02-14T08:00:00Z', 'usuario1'),
+    (2, false, '987654321', 'DU', true, false, 'contraseña456', 0, '2024-02-14T08:05:00Z', 'usuario2'),
+    (3, true, '55555555', 'DU', false, false, 'contraseña789', 2, '2024-02-14T08:10:00Z', 'usuario3');
+	
+-- Inserts para la tabla "product"
+INSERT INTO public.product (id, deleted, enabled, name, price, product_category, stock, "timestamp")
+VALUES 
+    (1, false, true, 'Laptop', 999.99, 'TECHNOLOGY', 10, '2024-02-14T08:00:00Z'),
+    (2, false, true, 'Smartphone', 599.99, 'TECHNOLOGY', 20, '2024-02-14T08:05:00Z'),
+    (3, false, true, 'Television', 899.99, 'HOME', 15, '2024-02-14T08:10:00Z');
+   
+
+-- Inserts para la tabla "promotion"
+INSERT INTO public.promotion (type_promotion, id, deleted, enabled, number_of_products, "timestamp", discount_percentage, end_date, start_date, cash_discount, special_date, discount_cheap_product)
+VALUES 
+    ('SpecialOffer', 1, false, true, 5, '2024-02-14T08:00:00Z', 10, '2024-02-28T23:59:59Z', '2024-02-14T00:00:00Z', 0.00, NULL, true),
+    ('HolidaySale', 2, false, true, 0, '2024-02-14T08:00:00Z', 20, '2024-12-31T23:59:59Z', '2024-12-01T00:00:00Z', 0.00, '2024-12-25T00:00:00Z', false);
+
+
