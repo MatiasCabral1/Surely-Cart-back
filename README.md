@@ -24,13 +24,15 @@
     spring.datasource.url=jdbc:postgresql://localhost:5432/cart
     spring.datasource.username=tu_usuario
     spring.datasource.password=tu_contraseña
-3. Recuerda que debemos crear la base de datos cart antes de la ejecucion.
+### Antes de iniciar la app:
+   1. Recuerda que debemos crear la base de datos cart.
+   2. Ejecutar el script ddbbInit en la BBDD que se encuentra en la carpeta raiz del repositorio.
 ### 4. Ejecucion
 En mi caso utilizando eclipse:
 1. Click derecho sobre "DemoApplication"  y ejecutar:
    ```bash
    Run as Java aplication
-2. La aplicacion corre en http://localhost:8081/  
+2. La aplicacion corre en http://localhost:8081/
 
 ## Autor
 - [Matias Cabral](https://github.com/MatiasCabral1)
